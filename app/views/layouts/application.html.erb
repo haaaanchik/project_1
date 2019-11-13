@@ -11,12 +11,13 @@
 
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Мои статьи</a>
+    <a class="navbar-brand" href= "" ><%= link_to 'Мои статьи', articles_path%> </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div  class="navbar-nav">
         <a class="nav-item nav-link" href="#">Главная страница <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="#">Рекомендуем</a>
         <a class="nav-item nav-link" href="#">Политика</a>
@@ -25,8 +26,28 @@
         <a class="nav-item nav-link" href="#">Авто</a>
         <a class="nav-item nav-link" href="#">Наука</a>
       </div>
+
     </div>
+
+<ul class="navbar-nav mr-auto">
+  <% if user_signed_in?%>
+  <li class="nav-item">
+    <%= link_to 'Выход', destroy_user_session_path, method: :delete, class: 'nav-link'%>
+  </li>
+   <% else %>
+    <li class="nav-item">
+      <%= link_to 'Вход', new_user_session_path, class: 'nav-link'%>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Регистрация', new_user_session_path,class: 'nav-link'%>
+      <a class="nav-link" href="<%= user_registration_path %>"></a>
+    </li>
+    <% end %>
+</ul>
+
+
   </nav>
+
   <div class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
