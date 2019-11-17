@@ -1,0 +1,4 @@
+<%= form_for @category do |f| %>
+  <p> Категории <br/><%= f.text_field :name %></p>
+  <p><%= f.submit "Создать категорию", class:'btn btn-warning'%></p>
+<%end%>

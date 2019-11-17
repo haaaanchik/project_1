@@ -1,0 +1,5 @@
+<h1>Редактирование категории</h1>
+<%= form_for @category do |f| %>
+  <p> Категория <br/><%= f.text_field :name %></p>
+  <p><%= f.submit "Сохранить" %></p>
+<%end%>
