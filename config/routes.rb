@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :categories do
     resources :articles, only: [:index, :show], module: :categories
   end
-
+  namespace :users do
+    resources :articles
+  end
   root "articles#index"
 
 end

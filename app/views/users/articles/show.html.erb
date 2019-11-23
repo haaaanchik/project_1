@@ -1,0 +1,5 @@
+<h1><%= @article.title %></h1>
+<%= link_to   @article.category.name, @article.category %>
+<%= link_to 'Изменить', edit_users_article_path(@article) %>
+<td><%= link_to "Удалить", users_article_path(@article), method: :delete, data:{confirm: "Вы уверены?"} %></td>
+<p><%= @article.body %></p>

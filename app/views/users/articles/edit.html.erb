@@ -1,7 +1,7 @@
-<h1>Новая статья</h1>
-<%= form_for @article do |f| %>
+<h1>Редактирование статьи</h1>
+<%= form_for @article, url: users_article_path(@article) do |f| %>
   <%= f.collection_select(:category_id, Category.all, :id, :name) %>
   <p> Заголовок статьи <br/><%= f.text_field :title %></p>
   <p> Описание статьи <br/><%= f.text_field :body %></p>
-  <p><%= f.submit "Опубликовать" %></p>
+  <p><%= f.submit "Сохранить" %></p>
 <%end%>
